@@ -2,7 +2,7 @@ spring:
   application:
     name: account-service
   datasource:
-    url: jdbc:postgresql://localhost/conta_db?createDataBaseIfNotExist=ture&useTimezone=true&serverTimezone=UTC
+    url: jdbc:postgresql://localhost/account_db?createDataBaseIfNotExist=ture&useTimezone=true&serverTimezone=UTC
     username: postgres
     password: PsqlPass
     driver-class-name: org.postgresql.Driver
@@ -14,6 +14,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show_sql: true
 server:
   port: 8000
 
