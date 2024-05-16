@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/customer-account")
-public class CustomerAccountController {
+public class CustomerAccountController extends BaseController{
     private final CustomerService service;
 
     @PostMapping
     public ResponseEntity post(@RequestBody CustomerDto customerDto){
         try {
             CustomerDto newCustomer = service.save(customerDto);
-            return new ResponseEntity(newCustomer, HttpStatus.CREATED);
+            return getResponseSuccess(newCustomer, "Conta registrada com sucesso!", HttpStatus.CREATED);
         }catch (Exception e){
-            return ResponseEntity.internalServerError().build();
+            return getResponseError(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR );
         }
     }
 }

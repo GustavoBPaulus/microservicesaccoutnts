@@ -1,6 +1,7 @@
 package com.gm2.dev.accountservice.assembler;
 
 import com.gm2.dev.accountservice.dto.CustomerDto;
+import com.gm2.dev.accountservice.dto.CustomerResponseDto;
 import com.gm2.dev.accountservice.entity.Customer;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -15,7 +16,7 @@ public class CustomerAssembler {
         return modelMapper.map(customerDto, Customer.class);
     }
 
-    public CustomerDto toDto(Customer customer) {
-        return  modelMapper.map(customer, CustomerDto.class);
+    public CustomerResponseDto toDto(Customer customer) {
+        return  modelMapper.map(customer, CustomerResponseDto.class);
     }
 }
